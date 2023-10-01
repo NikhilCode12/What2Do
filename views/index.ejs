@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What2Do</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Let's find something for you to do ✌</h1>
+        <form action="/" method="post">
+            <select name="type">
+                <option value="" data-select="Select" important>Random Type</option>
+                <option value="education">Education</option>
+                <option value="charity">Charity</option>
+                <option value="recreational">Recreational</option>
+                <option value="relaxation">Relaxation</option>
+                <option value="busywork">Busywork</option>
+                <option value="social">Social</option>
+                <option value="diy">DIY</option>
+                <option value="music">Music</option>
+            </select>
+            <select name="participants">
+                <option value="" important>Any number of people</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+            <button type="submit">Go</button>
+        </form>
+        <div class="output">
+            <% if(locals.data) {%>
+                <h2>
+                    <%= data.activity %>
+                </h2>
+                <div class="data">
+                    <span class="left"><%= data.type %></span>
+                    <span class="right">participants : <%= data.participants %></span>
+                </div>
+            <% } %>
+            <% if(locals.error) { %>
+                <div class="error">
+                    <%= error %>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</body>
+</html>
